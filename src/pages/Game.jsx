@@ -5,19 +5,20 @@ import clsx from "clsx"
 export default function Game() {
 
     const [cardItems, setCardItems] = useState(cards)
+    const [guess, setGuess] = useState([])
 
     const cardsEl = cardItems.map(el => {
 
         const cardClassname = clsx({
             'card': true,
-            'revealed': el.isRevealed
+            'revealed': el.isRevealed || guess.includes(el)
         })
 
         return(
             <button 
                 className={cardClassname} 
                 key={el.id} 
-                onClick={() => flipCard(el.id)}
+                onClick={() => flipCard(el)}
             >
                 <div className="card-face front">
                     <img 
@@ -32,11 +33,8 @@ export default function Game() {
         )
     })
 
-    function flipCard(id) {
-        setCardItems(prev => prev.map(el => {
-                return el.id === id ? {...el, isRevealed: !el.isRevealed} : el
-            })
-        )
+    function flipCard(el) {
+        setGuess(prev => [...prev, el])
     }
 
     return (
