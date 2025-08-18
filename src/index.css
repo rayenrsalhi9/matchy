@@ -82,8 +82,14 @@ main {
 .game {
     padding: 1em;
     width: 100%;
+    height: 100vh;
     max-width: 800px;
     margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .game .cards-container {
@@ -91,7 +97,10 @@ main {
     grid-template-columns: repeat(4, 1fr);
     gap: 1em;
     justify-content: center;
+    align-items: center;
     padding: 0.5em;
+    width: 100%;
+    max-width: 500px;
 }
 
 .game .card {
@@ -104,6 +113,7 @@ main {
     overflow: hidden;
     perspective: 1000px;
     cursor: pointer;
+    margin: 0 auto;
 }
 
 .game .card-face {
