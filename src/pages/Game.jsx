@@ -25,7 +25,7 @@ export default function Game() {
                 <div className="card-face front">
                     <img 
                         src={el.img.url} 
-                        alt={el.img.url} 
+                        alt={el.img.alt} 
                         className="card-img" 
                         loading="lazy"
                     />

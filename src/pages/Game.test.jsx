@@ -28,4 +28,26 @@ describe('Game', () => {
 
     })
 
+    test('reveals two matching cards', async () => {
+
+        const user = userEvent.setup()
+        render(<Game />)
+        
+        const images = screen.getAllByAltText('Apple')
+        expect(images).toHaveLength(2)
+
+        const card1 = images[0]
+        const card2 = images[1]
+
+        await user.click(card1)
+        await user.click(card2)
+
+        const cards = screen.getAllByRole('button')
+        const revealedCards = cards.filter(el => el.disabled)
+
+        expect(revealedCards[0].className).toBe('card revealed')
+        expect(revealedCards[1].className).toBe('card revealed')
+
+    })
+
 })
