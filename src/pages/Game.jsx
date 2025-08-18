@@ -64,6 +64,11 @@ export default function Game() {
         setGuess(prev => [...prev, el])
     }
 
+    function playAgain() {
+        setCardItems(cards)
+        setGuess([])
+    }
+
     return (
         <section className="game">
             <div className="cards-container">
@@ -71,6 +76,13 @@ export default function Game() {
             </div>
             {
                 isGameWon ? <ReactConfetti /> : null
+            }
+            {
+                isGameWon ? (
+                    <button className="play-again-btn" onClick={playAgain}>
+                        Play again
+                    </button> 
+                ) : null
             }
         </section>
     )
