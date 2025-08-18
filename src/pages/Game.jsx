@@ -8,8 +8,6 @@ export default function Game() {
     const [cardItems, setCardItems] = useState(cards)
     const [guess, setGuess] = useState([])
 
-    console.log(guess)
-
     const cardsEl = cardItems.map(el => {
 
         const cardClassname = clsx({
