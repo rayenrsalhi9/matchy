@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { cards } from "../cards"
 import clsx from "clsx"
 
@@ -32,6 +32,27 @@ export default function Game() {
             </button>
         )
     })
+
+    useEffect(() => {
+
+        const twoCardsGuessed = guess.length === 2
+
+        if (twoCardsGuessed) {
+
+            const isGuessCorrect = guess[0].value === guess[1].value
+
+            if (isGuessCorrect) {
+                setCardItems(prev => prev.map(el => {
+                    return guess.includes(el) ?
+                    {...el, isRevealed: !el.isRevealed} : el
+                }))
+            }
+
+            setTimeout(() => {
+                setGuess([])
+            }, 1000)
+        }
+    }, [guess])
 
     function flipCard(el) {
         setGuess(prev => [...prev, el])
