@@ -14,9 +14,18 @@ export default function Game() {
         })
 
         return(
-            <button className={cardClassname} key={el.id} onClick={() => flipCard(el.id)}>
+            <button 
+                className={cardClassname} 
+                key={el.id} 
+                onClick={() => flipCard(el.id)}
+            >
                 <div className="card-face front">
-                    <img src={el.img.url} alt={el.img.url} className="card-img"/>
+                    <img 
+                        src={el.img.url} 
+                        alt={el.img.url} 
+                        className="card-img" 
+                        loading="lazy"
+                    />
                 </div>
                 <div className="card-face back"></div>
             </button>
