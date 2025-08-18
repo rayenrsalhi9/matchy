@@ -63,7 +63,7 @@ export default function Game() {
     }
 
     function playAgain() {
-        setCardItems(cards)
+        setCardItems(prev => prev.map(el => ({...el, isRevealed: false})))
         setGuess([])
     }
 
