@@ -81,14 +81,17 @@ main {
 /* game design */
 .game {
     padding: 1em;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .game .cards-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
     justify-content: center;
-    align-items: center;
-    gap: .5em;
+    padding: 0.5em;
 }
 
 .game .card {
@@ -135,4 +138,11 @@ main {
     width: 90%;
     height: auto;
     object-fit: contain;
+}
+
+@media (max-width: 500px) {
+    .game .cards-container {
+        gap: 0.5em;
+        padding: 0.25em;
+    }
 }

@@ -1,4 +1,4 @@
-import brainIcon from '../../public/images/home/brain.png'
+import brainIcon from '/images/home/brain.png'
 
 export default function Home({ setIsHome }) {
   return (
