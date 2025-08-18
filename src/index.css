@@ -116,6 +116,10 @@ main {
     margin: 0 auto;
 }
 
+.game .card:disabled {
+    cursor: not-allowed;
+}
+
 .game .card-face {
     position: absolute;
     inset: 0;

@@ -8,6 +8,8 @@ export default function Game() {
     const [cardItems, setCardItems] = useState(cards)
     const [guess, setGuess] = useState([])
 
+    console.log(guess)
+
     const cardsEl = cardItems.map(el => {
 
         const cardClassname = clsx({
@@ -20,6 +22,7 @@ export default function Game() {
                 className={cardClassname} 
                 key={el.id} 
                 onClick={() => flipCard(el)}
+                disabled={guess.includes(el) || el.isRevealed}
             >
                 <div className="card-face front">
                     <img 
