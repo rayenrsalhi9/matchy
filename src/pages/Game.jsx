@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { cards } from "../cards"
 import clsx from "clsx"
+import ReactConfetti from "react-confetti"
 
 export default function Game() {
 
@@ -33,6 +34,8 @@ export default function Game() {
         )
     })
 
+    const isGameWon = cardItems.every(el => el.isRevealed)
+
     useEffect(() => {
 
         const twoCardsGuessed = guess.length === 2
@@ -63,6 +66,9 @@ export default function Game() {
             <div className="cards-container">
                 { cardsEl }
             </div>
+            {
+                isGameWon ? <ReactConfetti /> : null
+            }
         </section>
     )
 }
