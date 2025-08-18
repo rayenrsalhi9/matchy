@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Home from "./pages/Home"
+import Game from "./pages/Game"
 
 export default function App() {
   const [isHome, setIsHome] = useState(true)
@@ -7,7 +8,7 @@ export default function App() {
   return (
     <main>
       {
-        isHome ? <Home /> : null
+        isHome ? <Home setIsHome={setIsHome} /> : <Game />
       }
     </main>
   )
