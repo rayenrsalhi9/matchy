@@ -4,9 +4,9 @@ import { cards } from "../cards"
 import clsx from "clsx"
 import ReactConfetti from "react-confetti"
 
-export default function Game() {
+export default function Game({category}) {
 
-    const [cardItems, setCardItems] = useState(() => shuffleCards(cards))
+    const [cardItems, setCardItems] = useState(() => shuffleCards(cards[category]))
     const [guess, setGuess] = useState([])
     const playAgainBtnRef = useRef(null)
 
@@ -99,6 +99,7 @@ export default function Game() {
             }
             {
                 isGameWon ? (
+                    <>
                     <button 
                         className="play-again-btn" 
                         ref={playAgainBtnRef}
@@ -108,6 +109,7 @@ export default function Game() {
                     >
                         Play again
                     </button> 
+                    </>
                 ) : null
             }
         </section>

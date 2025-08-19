@@ -4,11 +4,14 @@ import Game from "./pages/Game"
 
 export default function App() {
   const [isHome, setIsHome] = useState(true)
+  const [category, setCategory] = useState('')
 
   return (
     <main>
       {
-        isHome ? <Home setIsHome={setIsHome} /> : <Game />
+        isHome ? 
+        <Home setIsHome={setIsHome} setCategory={setCategory} category={category} /> : 
+        <Game category={category} />
       }
     </main>
   )

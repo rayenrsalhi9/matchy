@@ -57,10 +57,30 @@ main {
     transition: .6s ease;
 }
 
-.home-page button:hover {
+.home-page button:not(:disabled):hover {
     background: black;
     color: white;
 }
+
+.home-page button:disabled {
+    opacity: .8;
+    cursor: not-allowed;
+}
+
+.home-page select {
+    display: block;
+    font-weight: 600;
+    border: 2px solid #111;
+    border-radius: 6px;
+    background: #f5f5f5;
+    color: #111;
+    font-size: 1.125rem;
+    padding: .5em;
+    margin-bottom: 1em;
+    cursor: pointer;
+    transition: .6s ease;
+}
+
 
 .home-page img {
     position: absolute;
