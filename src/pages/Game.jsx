@@ -74,9 +74,9 @@ export default function Game({category, setIsHome}) {
         setGuess([])
     }
 
-    function shuffleCards(cards) {
+    function shuffleCards(cardsArr) {
         // Create a copy of the array to avoid mutating the original
-        const shuffled = [...cards];
+        const shuffled = [...cardsArr];
         
         // Fisher-Yates shuffle algorithm
         for (let i = shuffled.length - 1; i > 0; i--) {
