@@ -17,7 +17,7 @@ describe('Game', () => {
 
     test('renders the cards with images', async () => {
         const { default: Game } = await import('./Game')
-        render(<Game />)
+        render(<Game category='animals' />)
         const images = screen.getAllByRole('img')
         expect(images).toHaveLength(16)
         images.forEach(img => {
@@ -31,7 +31,7 @@ describe('Game', () => {
 
         const user = userEvent.setup()
         const { default: Game } = await import('./Game')
-        render(<Game />)
+        render(<Game category='animals' />)
         const cards = screen.getAllByRole('button')
 
         await user.click(cards[0])
@@ -44,7 +44,7 @@ describe('Game', () => {
 
         const user = userEvent.setup()
         const { default: Game } = await import('./Game')
-        render(<Game />)
+        render(<Game category='fruits' />)
         
         const images = screen.getAllByAltText('Apple')
         expect(images).toHaveLength(2)
@@ -171,7 +171,7 @@ describe('Game', () => {
         const user = userEvent.setup()
 
         const { default: Game } = await import('./Game')
-        render(<Game />)
+        render(<Game category='animals' />)
 
         const buttonsArr = screen.getAllByRole('button')
         expect(buttonsArr).toHaveLength(17)
