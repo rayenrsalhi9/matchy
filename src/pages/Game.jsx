@@ -103,7 +103,8 @@ export default function Game() {
                         className="play-again-btn" 
                         ref={playAgainBtnRef}
                         onClick={playAgain} 
-                        aria-live="polite"
+                        aria-label='congratulations! you won the game! click to play again.'
+                        aria-live="assertive"
                     >
                         Play again
                     </button> 
