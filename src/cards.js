@@ -95,4 +95,4 @@ export const cards = [
     value: "strawberry",
     isRevealed: false
   },
-].sort(() => Math.random() - 0.5)
+]

@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react"
 import { cards } from "../cards"
+
 import clsx from "clsx"
 import ReactConfetti from "react-confetti"
 
 export default function Game() {
 
-    const [cardItems, setCardItems] = useState(cards)
+    const [cardItems, setCardItems] = useState(() => shuffleCards(cards))
     const [guess, setGuess] = useState([])
 
     const cardsEl = cardItems.map(el => {
@@ -63,8 +64,23 @@ export default function Game() {
     }
 
     function playAgain() {
-        setCardItems(prev => prev.map(el => ({...el, isRevealed: false})))
+        setCardItems((prev) => shuffleCards(prev.map(el => ({...el, isRevealed: false}))))
         setGuess([])
+    }
+
+    function shuffleCards(cards) {
+        // Create a copy of the array to avoid mutating the original
+        const shuffled = [...cards];
+        
+        // Fisher-Yates shuffle algorithm
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            // Generate random index from 0 to i
+            const j = Math.floor(Math.random() * (i + 1));
+            // Swap elements at i and j
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        
+        return shuffled;
     }
 
     return (
