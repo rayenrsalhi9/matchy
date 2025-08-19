@@ -8,8 +8,13 @@ describe('App', () => {
     test('handles play game button click', async () => {
 
         const user = userEvent.setup()
+        
         render(<App />)
+
         const playGameBtn = screen.getByRole('button')
+
+        const categorySelect = screen.getByRole('combobox')
+        await user.selectOptions(categorySelect, 'animals')
 
         await user.click(playGameBtn)
 
