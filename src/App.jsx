@@ -11,7 +11,7 @@ export default function App() {
       {
         isHome ? 
         <Home setIsHome={setIsHome} setCategory={setCategory} category={category} /> : 
-        <Game category={category} />
+        <Game category={category} setIsHome={setIsHome} />
       }
     </main>
   )

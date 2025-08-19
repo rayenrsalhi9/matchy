@@ -4,7 +4,7 @@ import { cards } from "../cards"
 import clsx from "clsx"
 import ReactConfetti from "react-confetti"
 
-export default function Game({category}) {
+export default function Game({category, setIsHome}) {
 
     const [cardItems, setCardItems] = useState(() => shuffleCards(cards[category]))
     const [guess, setGuess] = useState([])
@@ -99,7 +99,7 @@ export default function Game({category}) {
             }
             {
                 isGameWon ? (
-                    <>
+                    <div className="buttons-container">
                     <button 
                         className="play-again-btn" 
                         ref={playAgainBtnRef}
@@ -109,7 +109,10 @@ export default function Game({category}) {
                     >
                         Play again
                     </button> 
-                    </>
+                    <button className="main-menu-btn" onClick={() => setIsHome(true)}>
+                        Main menu
+                    </button>
+                    </div>
                 ) : null
             }
         </section>
