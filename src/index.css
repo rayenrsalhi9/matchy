@@ -114,6 +114,15 @@ main {
     perspective: 1000px;
     cursor: pointer;
     margin: 0 auto;
+    transition: .3s ease;
+}
+
+.game .card:not(:disabled):hover {
+    border-color: #780000;
+}
+
+.game .card:not(:disabled):focus-visible {
+    outline: 2px solid #b00000;
 }
 
 .game .card:disabled {

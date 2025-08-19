@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { cards } from "../cards"
 
 import clsx from "clsx"
@@ -8,6 +8,7 @@ export default function Game() {
 
     const [cardItems, setCardItems] = useState(() => shuffleCards(cards))
     const [guess, setGuess] = useState([])
+    const playAgainBtnRef = useRef(null)
 
     const cardsEl = cardItems.map(el => {
 
@@ -22,6 +23,7 @@ export default function Game() {
                 key={el.id} 
                 onClick={() => flipCard(el)}
                 disabled={guess.includes(el) || el.isRevealed}
+                aria-label={`card number ${el.id}`}
             >
                 <div className="card-face front">
                     <img 
@@ -59,6 +61,10 @@ export default function Game() {
         }
     }, [guess])
 
+    useEffect(() => {
+        isGameWon ? playAgainBtnRef.current.focus() : null
+    }, [isGameWon])
+
     function flipCard(el) {
         setGuess(prev => [...prev, el])
     }
@@ -93,7 +99,12 @@ export default function Game() {
             }
             {
                 isGameWon ? (
-                    <button className="play-again-btn" onClick={playAgain}>
+                    <button 
+                        className="play-again-btn" 
+                        ref={playAgainBtnRef}
+                        onClick={playAgain} 
+                        aria-live="polite"
+                    >
                         Play again
                     </button> 
                 ) : null
