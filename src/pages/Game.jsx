@@ -22,7 +22,7 @@ export default function Game({category, setIsHome}) {
                 className={cardClassname} 
                 key={el.id} 
                 onClick={() => flipCard(el)}
-                disabled={guess.includes(el) || el.isRevealed}
+                disabled={guess.includes(el) || el.isRevealed || guess.length === 2}
                 aria-label={`card number ${el.id}`}
             >
                 <div className="card-face front">
